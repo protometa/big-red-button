@@ -22,7 +22,7 @@ button.big-red {
 
 }
 
-button.pressed {
+button.on-state {
   background-color: red;
   border-color: red;
 }
