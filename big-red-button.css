@@ -1,1 +1,28 @@
 /* CSS declarations go here */
+
+body {
+  background-color: #DDD;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  height: 100vh;
+}
+
+button.big-red {
+  height: 50vh;
+  width: 50vh;
+  background-color: #EC5858;
+  border-radius: 25vh;
+  border-width: 4vh;
+  border-color: #F56A6A;
+  outline: none;
+
+}
+
+button.pressed {
+  background-color: red;
+  border-color: red;
+}
