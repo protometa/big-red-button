@@ -4,10 +4,17 @@
 
 <body>
   {{> button}}
+  {{> stats}}
 </body>
 
 <template name="button">
   <button class="big-red {{#if state}}on-state{{/if}}"></button>
+</template>
+
+<template name="stats">
+  <ul class="stats">
+    <li>button has been pressed {{count}} times</li>
+  </ul>
 </template>
 
 

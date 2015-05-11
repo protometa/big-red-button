@@ -9,6 +9,12 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.stats.helpers({
+    count: function () {
+      return Buttons.findOne('big-red').counter
+    }
+  });
+
   Template.button.events({
     'click button': function () {
       // increment the counter when button is clicked
