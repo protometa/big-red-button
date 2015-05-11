@@ -1,23 +1,26 @@
-if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
+var Buttons = new Mongo.Collection('buttons')
+
+if (Meteor.isClient) {
+
+  Template.button.helpers({
+    state: function () {
+      return Buttons.findOne('big-red').counter % 2
     }
   });
 
-  Template.hello.events({
+  Template.button.events({
     'click button': function () {
       // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
+      Buttons.update('big-red', {$inc: {counter: 1}});
     }
   });
 }
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    // code to run on server at startup
+    if (!Buttons.findOne('big-red')) {
+      Buttons.insert({_id: 'big-red', counter: 0})
+    };
   });
 }
